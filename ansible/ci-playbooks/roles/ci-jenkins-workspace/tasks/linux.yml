@@ -1,7 +1,7 @@
 ---
 - name: ci-jenkins-workspace (debian) | Add jenkins logical volume
   lvol:
-    vg: scratch
+    vg: VolGroup00
     lv: scratch
     size: 64512
   become: yes
@@ -11,14 +11,14 @@
     # Because it's a scratch filesytem with no important data on it,
     # disable journalling for performance.
     fstype: ext4
-    dev: /dev/scratch/scratch
+    dev: /dev/VolGroup00/scratch
     opts: -O ^has_journal
   become: yes
 
 - name: ci-data-repo (debian) | Mount data repo
   mount:
     path: /scratch
-    src: /dev/scratch/scratch
+    src: /dev/VolGroup00/scratch
     fstype: ext4
     opts: rw,noatime
     state: mounted

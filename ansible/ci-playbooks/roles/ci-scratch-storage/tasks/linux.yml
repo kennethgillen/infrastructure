@@ -1,6 +1,9 @@
 ---
 - name: ci-scratch-storage (linux) | Create volume group
+  tags: lvm
   lvg:
+  # This is an OpenStack specific PV? we could make it configurable, and come from a group var?
+  # i.e. this fails because the PV has to exist, rather than it be created by the role.
     pvs: /dev/vdb
     state: present
     vg: scratch
