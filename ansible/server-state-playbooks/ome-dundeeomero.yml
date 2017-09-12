@@ -253,7 +253,6 @@
       omero.jvmcfg.system_memory: 17000
       omero.ldap.base: "{{ omero_server_ldap_base }}"
       omero.ldap.config: true
-      omero.ldap.new_user_group: default
       omero.ldap.urls: "{{ omero_server_ldap_urls }}"
       omero.mail.config: true
       omero.mail.from: "{{ omero_server_mail_from }}"
